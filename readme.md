@@ -5,15 +5,15 @@
 
 Generate the testing app with `$ bundle exec rake refinery:testing:dummy_app`
 
-If you've already generated one before you might have to `rm -r spec/dummy` first.
+If you're regenerating the testing app you should `$ rm -r spec/dummy` first or strange things will happen.
 
 Run the tests with `$ bundle exec rspec ./spec`
 
 ##Committing
 
-`refinery-enrollment` uses [Travis CI] to perform [continuous integration].
+*refinery-enrollment* uses [Travis CI] to perform [continuous integration].
 
-Each commit pushed to github will be automatically tested unless the commit message includes [ci skip]
+Each commit pushed to github will be automatically tested unless the commit message includes `[ci skip]`
 
 
   [Travis CI]: http://about.travis-ci.org/docs/
