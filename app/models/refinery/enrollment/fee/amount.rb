@@ -18,9 +18,7 @@ module Refinery
             },
             :converter    => Proc.new{|value|
               if value.respond_to?(:to_money)
-                money = value.to_money
-                money.original_value = value
-                money
+                value.to_money
               else
                 raise(ArgumentError, "Can't convert #{value.class} to Money")
               end

@@ -1,0 +1,17 @@
+<%= form_for [refinery, :enrollment_admin, @course] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @course,
+              :include_object_name => true %>
+
+  
+  <div class='field'>
+    <%= f.label :name -%>
+    <%= f.text_field :name, :class => 'larger widest'  -%>
+
+  </div>
+  
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.courses.admin.courses.course'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @course.name) %>
+<% end -%>

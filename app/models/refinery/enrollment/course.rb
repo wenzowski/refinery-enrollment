@@ -1,10 +1,14 @@
 module Refinery
   module Enrollment
-    class Course < ActiveRecord::Base
-      has_many :offered_courses
+    class Course < Refinery::Core::BaseModel
+      attr_accessible :name
+
+      has_many :offered_courses, :class_name => Refinery::Enrollment::Session::OfferedCourse
       has_many :sessions, :through => :offered_courses
 
+      acts_as_indexed :fields => [:name]
 
+      validates :name, :presence => true, :uniqueness => true
 
     end
   end

@@ -4,7 +4,7 @@ module Refinery
       class CoursesController < ::Refinery::AdminController
 
         crudify :'refinery/enrollment/course',
-                :order => 'title ASC'
+                :title_attribute => 'name', :xhr_paging => true
 
       end
     end

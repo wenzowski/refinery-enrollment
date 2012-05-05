@@ -2,9 +2,10 @@ require 'refinerycms-core'
 require 'refinerycms-settings'
 require 'filters_spam'
 require 'rails_autolink'
+require 'money'
 
 module Refinery
-  autoload :EnrollmentGenerator, 'generators/refinery/enrollment/enrollment_generator'
+  autoload :EnrollmentGenerator, 'generators/refinery/enrollment_generator'
 
   module Enrollment
     require 'refinery/enrollment/engine'

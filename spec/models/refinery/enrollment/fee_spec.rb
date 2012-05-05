@@ -18,7 +18,6 @@ module Refinery
         %w(1 '1' 1.11 '$10.11' '.1$').each do |amount|
           f = Refinery::Enrollment::Fee.new
           f.amount = amount
-          f.amount.original_value.should == amount
           f.amount.should == amount.to_money
         end
       end

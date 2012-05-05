@@ -1,12 +1,12 @@
-Refinery::User.all.each do |user|
+::Refinery::User.all.each do |user|
   if user.plugins.where(:name => 'refinerycms_enrollment').blank?
     user.plugins.create(:name => "refinerycms_enrollment",
                         :position => (user.plugins.maximum(:position) || -1) +1)
   end
-end if defined?(Refinery::User)
+end if defined?(::Refinery::User)
 
-if defined?(Refinery::Page) and !Refinery::Page.exists?(:link_url => '/enrollment')
-  page = Refinery::Page.create(
+if defined?(::Refinery::Page) and !::Refinery::Page.exists?(:link_url => '/enrollment')
+  page = ::Refinery::Page.create(
     :title => "Enrollment",
     :link_url => "/enrollment",
     :deletable => false,

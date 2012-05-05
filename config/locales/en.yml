@@ -1,0 +1,27 @@
+en:
+  refinery:
+    plugins:
+      refinerycms_enrollment:
+        title: Enrollment
+    enrollment:
+      admin:
+        courses:
+          actions:
+            create_new: Add New Course
+            reorder: Reorder Courses
+            reorder_done: Done Reordering Courses
+          records:
+            title: Courses
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Courses yet. Click "Add New Course" to add your first course.
+          course:
+            view_live_html: View this course live <br/><em>(opens in a new window)</em>
+            edit: Edit this course
+            delete: Remove this course forever
+      courses:
+        show:
+          other: Other Courses
+  activerecord:
+    attributes:
+      'refinery/enrollment/course':
+        name: Name
