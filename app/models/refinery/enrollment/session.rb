@@ -1,9 +1,9 @@
 module Refinery
   module Enrollment
     class Session < ActiveRecord::Base
-      attr_accessible :begins_on, :ends_on, :registration_begins_on, :registration_ends_on
+      attr_accessible :begins_on, :ends_on, :registration_begins_on, :registration_ends_on, :course_ids
 
-      has_many :offered_courses
+      has_many :offered_courses, :dependent => :destroy
       has_many :courses, :through => :offered_courses
       has_many :registrations, :through => :offered_courses
       has_many :fees, :as => :billable

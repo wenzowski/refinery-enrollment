@@ -14,6 +14,8 @@ en:
             view_live_html: View this course live <br/><em>(opens in a new window)</em>
             edit: Edit this course
             delete: Remove this course forever
+          form:
+            offered_sessions: "This course will be offered in the following sessions:"
         sessions:
           records:
             title: Sessions
@@ -23,6 +25,8 @@ en:
             view_live_html: View this session live <br/><em>(opens in a new window)</em>
             edit: Edit this session
             delete: Remove this session forever
+          form:
+            offered_courses: "Offered courses:"
         settings:
           notification_recipients:
             value: Send notifications to

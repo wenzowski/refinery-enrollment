@@ -3,33 +3,49 @@
               :object => @session,
               :include_object_name => true %>
 
-  
+
   <div class='field'>
     <%= f.label :begins_on -%>
     <%= f.date_select :begins_on  -%>
 
   </div>
-  
+
   <div class='field'>
     <%= f.label :ends_on -%>
     <%= f.date_select :ends_on  -%>
 
   </div>
-  
+
   <div class='field'>
     <%= f.label :registration_begins_on -%>
     <%= f.date_select :registration_begins_on  -%>
 
   </div>
-  
+
   <div class='field'>
     <%= f.label :registration_ends_on -%>
     <%= f.date_select :registration_ends_on  -%>
 
   </div>
-  
+
+  <% if @all_courses %>
+    <div id='offered_courses' class='tickable_collection'>
+      <h4><%= t('refinery.enrollment.admin.sessions.form.offered_courses') %></h4>
+      <ul>
+        <% @all_courses.each do |course| %>
+          <li class='field'>
+            <%= check_box_tag :course_ids, course.id, @session.courses.include?(course), :name => 'session[course_ids][]' %>
+            <%= label_tag :course_ids, course.name %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= render '/refinery/admin/form_actions', :f => f,
              :continue_editing => false,
              :delete_title => t('delete', :scope => 'refinery.sessions.admin.sessions.session'),
              :delete_confirmation => t('message', :scope => 'refinery.admin.delete') %>
 <% end -%>
+
+<% content_for :stylesheets, stylesheet_link_tag('refinery/enrollment/backend') %>

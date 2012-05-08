@@ -1,0 +1,12 @@
+.tickable_collection {
+  ul {
+    padding-left: 0;
+    margin-left: 0;
+    li {
+      list-style-type: none;
+      input {
+        float: left;
+      }
+    }
+  }
+}

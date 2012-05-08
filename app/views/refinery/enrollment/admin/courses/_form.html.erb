@@ -3,15 +3,31 @@
               :object => @course,
               :include_object_name => true %>
 
-  
+
   <div class='field'>
     <%= f.label :name -%>
     <%= f.text_field :name, :class => 'larger widest'  -%>
 
   </div>
-  
+
+  <% if @all_sessions %>
+    <div id='offered_sessions' class='tickable_collection'>
+      <h4><%= t('refinery.enrollment.admin.courses.form.offered_sessions') %></h4>
+      <ul>
+        <% @all_sessions.each do |session| %>
+          <li class='field'>
+            <%= check_box_tag :session_ids, session.id, @course.sessions.include?(session), :name => 'session[session_ids][]' %>
+            <%= label_tag :session_ids, session.title %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= render '/refinery/admin/form_actions', :f => f,
              :continue_editing => false,
              :delete_title => t('delete', :scope => 'refinery.courses.admin.courses.course'),
              :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @course.name) %>
 <% end -%>
+
+<% content_for :stylesheets, stylesheet_link_tag('refinery/enrollment/backend') %>

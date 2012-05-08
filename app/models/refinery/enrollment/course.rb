@@ -3,7 +3,7 @@ module Refinery
     class Course < Refinery::Core::BaseModel
       attr_accessible :name
 
-      has_many :offered_courses, :class_name => Refinery::Enrollment::Session::OfferedCourse
+      has_many :offered_courses, :class_name => Refinery::Enrollment::Session::OfferedCourse, :dependent => :destroy
       has_many :sessions, :through => :offered_courses
 
       acts_as_indexed :fields => [:name]
