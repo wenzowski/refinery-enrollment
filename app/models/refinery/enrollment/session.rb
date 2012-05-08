@@ -1,6 +1,8 @@
 module Refinery
   module Enrollment
     class Session < ActiveRecord::Base
+      attr_accessible :begins_on, :ends_on, :registration_begins_on, :registration_ends_on
+
       has_many :offered_courses
       has_many :courses, :through => :offered_courses
       has_many :registrations, :through => :offered_courses
@@ -18,6 +20,12 @@ module Refinery
 
       def self.available
         where('registration_ends_on > ?', Time.zone.now)
+      end
+
+      def title
+        I18n.t '.refinery.enrollment.sessions.title',
+          :begins_on => begins_on.to_date.to_s(:long),
+          :ends_on => ends_on.to_date.to_s(:long)
       end
 
       def started?

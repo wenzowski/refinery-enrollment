@@ -1,0 +1,25 @@
+<ul>
+  <% if ::Refinery::Enrollment::Admin::SessionsController.searchable? %>
+    <li>
+      <%= render '/refinery/admin/search', :url => refinery.enrollment_admin_sessions_path %>
+    </li>
+  <% end %>
+  <li>
+    <%= link_to t('.create_new'), refinery.new_enrollment_admin_session_path,
+                 :class => "add_icon" %>
+  </li>
+<% if !searching? && ::Refinery::Enrollment::Admin::SessionsController.sortable? && ::Refinery::Enrollment::Session.any? %>
+  <li>
+    <%= link_to t('.reorder', :what => "Sessions"),
+                 refinery.enrollment_admin_sessions_path,
+                 :id => "reorder_action",
+                 :class => "reorder_icon" %>
+
+    <%= link_to t('.reorder_done', :what => "Sessions"),
+                 refinery.enrollment_admin_sessions_path,
+                 :id => "reorder_action_done",
+                 :style => "display: none;",
+                 :class => "reorder_icon" %>
+  </li>
+<% end %>
+</ul>

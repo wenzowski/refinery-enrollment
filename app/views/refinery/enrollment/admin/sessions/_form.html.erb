@@ -1,0 +1,35 @@
+<%= form_for [refinery, :enrollment_admin, @session] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @session,
+              :include_object_name => true %>
+
+  
+  <div class='field'>
+    <%= f.label :begins_on -%>
+    <%= f.date_select :begins_on  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :ends_on -%>
+    <%= f.date_select :ends_on  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :registration_begins_on -%>
+    <%= f.date_select :registration_begins_on  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :registration_ends_on -%>
+    <%= f.date_select :registration_ends_on  -%>
+
+  </div>
+  
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.sessions.admin.sessions.session'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete') %>
+<% end -%>

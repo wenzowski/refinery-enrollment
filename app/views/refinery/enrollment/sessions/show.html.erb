@@ -1,0 +1,45 @@
+<% content_for :body_content_title do %>
+  <%= @session.title %>
+<% end %>
+
+<% content_for :body_content_left do %>
+  <section>
+    <h1>Begins On</h1>
+    <p>
+      <%=raw @session.begins_on %>
+    </p>
+  </section>
+  <section>
+    <h1>Ends On</h1>
+    <p>
+      <%=raw @session.ends_on %>
+    </p>
+  </section>
+  <section>
+    <h1>Registration Begins On</h1>
+    <p>
+      <%=raw @session.registration_begins_on %>
+    </p>
+  </section>
+  <section>
+    <h1>Registration Ends On</h1>
+    <p>
+      <%=raw @session.registration_ends_on %>
+    </p>
+  </section>
+<% end %>
+
+<% content_for :body_content_right do %>
+  <aside>
+    <h2><%= t('.other') %></h2>
+    <ul id="sessions">
+      <% @sessions.each do |session| %>
+        <li>
+          <%= link_to session.title, refinery.enrollment_session_path(session) %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+<% end %>
+
+<%= render '/refinery/content_page' %>

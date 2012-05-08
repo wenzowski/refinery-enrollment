@@ -24,7 +24,7 @@ describe Refinery do
           before(:each) do
             visit refinery.enrollment_admin_courses_path
 
-            click_link "Add New Course"
+            click_link "Create new course"
           end
 
           context "valid data" do
@@ -52,7 +52,7 @@ describe Refinery do
             it "should fail" do
               visit refinery.enrollment_admin_courses_path
 
-              click_link "Add New Course"
+              click_link "Create new course"
 
               fill_in "Name", :with => "UniqueTitle"
               click_button "Save"

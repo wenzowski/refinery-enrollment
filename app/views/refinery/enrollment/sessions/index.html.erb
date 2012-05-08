@@ -1,0 +1,11 @@
+<% content_for :body_content_left do %>
+  <ul id="sessions">
+    <% @sessions.each do |session| %>
+      <li>
+        <%= link_to session, refinery.enrollment_session_path(session) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render '/refinery/content_page' %>

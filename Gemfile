@@ -13,6 +13,7 @@ group :development, :test do
 
   gem 'refinerycms-testing', '~> 2.0.0'
   gem 'guard-rspec', '~> 0.6.0'
+  gem 'launchy'
 
   platforms :jruby do
     gem 'activerecord-jdbcsqlite3-adapter'

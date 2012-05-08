@@ -6,21 +6,47 @@ en:
     enrollment:
       admin:
         courses:
-          actions:
-            create_new: Add New Course
-            reorder: Reorder Courses
-            reorder_done: Done Reordering Courses
           records:
             title: Courses
             sorry_no_results: Sorry! There are no results found.
-            no_items_yet: There are no Courses yet. Click "Add New Course" to add your first course.
+            no_items_yet: There are no Courses yet. Click "Create new course" to add your first course.
           course:
             view_live_html: View this course live <br/><em>(opens in a new window)</em>
             edit: Edit this course
             delete: Remove this course forever
+        sessions:
+          records:
+            title: Sessions
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Sessions yet. Click "Create new session" to add your first session.
+          session:
+            view_live_html: View this session live <br/><em>(opens in a new window)</em>
+            edit: Edit this session
+            delete: Remove this session forever
+        settings:
+          notification_recipients:
+            value: Send notifications to
+            explanation: 'Every time someone registers for a class, Refinery sends out an email to say there is a new registration.'
+            hint: 'When a new comment is added, Refinery will send an email notification to you.'
+            example: "Enter your email address(es) like: jack@work.com, jill@office.com"
+            updated: 'Notification recipients have been set to "%{recipients}"'
+        submenu:
+          courses:
+            title: Courses
+            manage: Manage courses
+            new: Create new course
+          sessions:
+            title: Sessions
+            manage: Manage sessions
+            new: Create new session
+          settings:
+            title: Settings
+            update_notified: Update who gets notified
       courses:
         show:
           other: Other Courses
+      sessions:
+        title: Session from %{begins_on} to %{ends_on}
   activerecord:
     attributes:
       'refinery/enrollment/course':
