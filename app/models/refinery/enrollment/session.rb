@@ -6,7 +6,7 @@ module Refinery
       has_many :offered_courses, :dependent => :destroy
       has_many :courses, :through => :offered_courses
       has_many :registrations, :through => :offered_courses
-      has_many :fees, :as => :billable
+      has_many :fees, :as => :billable, :dependent => :destroy
 
       validates :begins_on, :ends_on, :registration_begins_on, :registration_ends_on,
         :presence => true

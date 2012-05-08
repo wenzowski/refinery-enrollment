@@ -77,6 +77,30 @@ class CreateRefineryEnrollmentStructure < ActiveRecord::Migration
 
 
 
+    create_table Refinery::Enrollment::Student::Account.table_name do |t|
+      t.integer :student_id, :null => false
+      t.integer :session_id, :null => false
+      t.date    :due_date, :null => false
+      t.timestamps
+    end
+    add_index Refinery::Enrollment::Student::Account.table_name, :id
+    add_index Refinery::Enrollment::Student::Account.table_name, :student_id
+    add_index Refinery::Enrollment::Student::Account.table_name, :session_id
+
+    create_table Refinery::Enrollment::Student::Account::LineItem.table_name do |t|
+      t.integer :account_id, :null => false
+      t.integer :registration_id, :null => false
+      t.string  :name, :null => false
+      t.timestamps
+    end
+    add_index Refinery::Enrollment::Student::Account::LineItem.table_name, :id
+    add_index Refinery::Enrollment::Student::Account::LineItem.table_name, :account_id,
+      :name => 'index_refinery_enrollment_student_account_line_items_account_id'
+    add_index Refinery::Enrollment::Student::Account::LineItem.table_name, :registration_id,
+      :name => 'index_refinery_enrollment_student_account_line_items_registratio'
+
+
+
     create_table Refinery::Enrollment::Fee.table_name do |t|
       t.integer :cents, :default => 0, :null => false
       t.string  :currency, :null => false
@@ -89,6 +113,36 @@ class CreateRefineryEnrollmentStructure < ActiveRecord::Migration
 
 
 
+    create_table Refinery::Enrollment::Phone.table_name do |t|
+      t.integer :number, :null => false
+      t.boolean :textable, :default => false, :null => false
+      t.integer :phoneable_id, :null => false
+      t.string  :phoneable_type, :null => false, :limit => 20
+      t.timestamps
+    end
+    add_index Refinery::Enrollment::Phone.table_name, :id
+    add_index Refinery::Enrollment::Phone.table_name, [:phoneable_id, :phoneable_type],
+      :unique => true, :name => 'index_refinery_enrollment_phones_on_phoneable_id_and_type'
+
+
+
+    create_table Refinery::Enrollment::Address.table_name do |t|
+      t.string  :address1, :null => false
+      t.string  :address2
+      t.string  :city, :null => false
+      t.string  :state, :null => false
+      t.string  :country, :null => false
+      t.string  :zip, :null => false
+      t.integer :addressable_id, :null => false
+      t.string  :addressable_type, :null => false, :limit => 20
+      t.timestamps
+    end
+    add_index Refinery::Enrollment::Address.table_name, :id
+    add_index Refinery::Enrollment::Address.table_name, [:addressable_id, :addressable_type],
+      :unique => true, :name => 'index_refinery_enrollment_address_on_addressable_id_and_type'
+
+
+
     create_table Refinery::Enrollment::User.table_name do |t|
       t.integer :user_id, :null => false
       t.integer :authenticatable_id, :null => false
@@ -97,7 +151,8 @@ class CreateRefineryEnrollmentStructure < ActiveRecord::Migration
     end
     add_index Refinery::Enrollment::User.table_name, :id
     add_index Refinery::Enrollment::User.table_name, :user_id
-    add_index Refinery::Enrollment::User.table_name, [:authenticatable_id, :authenticatable_type], :unique => true, :name => 'index_refinery_enrollment_users_on_authenticatable_id_and_type'
+    add_index Refinery::Enrollment::User.table_name, [:authenticatable_id, :authenticatable_type],
+      :unique => true, :name => 'index_refinery_enrollment_users_on_authenticatable_id_and_type'
 
   end
 end
