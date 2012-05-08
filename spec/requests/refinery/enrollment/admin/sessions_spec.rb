@@ -134,6 +134,8 @@ describe Refinery do
           end
         end
 
+        pending "edit this session's fees"
+
         describe "destroy" do
           before(:each) { FactoryGirl.create(:session) }
 

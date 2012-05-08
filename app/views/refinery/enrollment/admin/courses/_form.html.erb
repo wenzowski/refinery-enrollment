@@ -7,10 +7,16 @@
   <div class='field'>
     <%= f.label :name -%>
     <%= f.text_field :name, :class => 'larger widest'  -%>
-
   </div>
 
-  <% if @all_sessions %>
+  <div class='fee'>
+    <%= f.fields_for :fee do |f| %>
+      <%= f.label :amount, t('refinery.enrollment.admin.courses.form.amount') -%>
+      <%= f.text_field :amount, :class => 'larger widest'  -%>
+    <% end %>
+  </div>
+
+  <% unless @all_sessions.empty? %>
     <div id='offered_sessions' class='tickable_collection'>
       <h4><%= t('refinery.enrollment.admin.courses.form.offered_sessions') %></h4>
       <ul>

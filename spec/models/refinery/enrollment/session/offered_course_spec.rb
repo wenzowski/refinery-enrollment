@@ -15,7 +15,7 @@ module Refinery
         it { should have_db_index(:session_id) }
 
         it { should have_many(:registrations) }
-        it { should have_many(:fees) }
+        it { should have_one(:fee) }
         it { should belong_to(:session) }
         it { should belong_to(:course) }
       end

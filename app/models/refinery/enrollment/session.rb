@@ -1,18 +1,24 @@
 module Refinery
   module Enrollment
-    class Session < ActiveRecord::Base
-      attr_accessible :begins_on, :ends_on, :registration_begins_on, :registration_ends_on, :course_ids
+    class Session < Refinery::Core::BaseModel
+      attr_accessible :begins_on, :ends_on, :registration_begins_on, :registration_ends_on, :course_ids, :fee_attributes
 
       has_many :offered_courses, :dependent => :destroy
       has_many :courses, :through => :offered_courses
       has_many :registrations, :through => :offered_courses
-      has_many :fees, :as => :billable, :dependent => :destroy
+      has_one :fee, :as => :billable, :dependent => :destroy
 
       validates :begins_on, :ends_on, :registration_begins_on, :registration_ends_on,
         :presence => true
       validate :that_it_ends_after_it_begins
       validate :that_registration_ends_after_it_begins
       validate :that_registration_ends_before_the_session_does
+
+      accepts_nested_attributes_for :fee
+
+      after_initialize do
+        build_fee unless fee
+      end
 
       def self.next_available
         available.limit(1)

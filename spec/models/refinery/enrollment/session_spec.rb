@@ -14,7 +14,7 @@ module Refinery
       it { should have_many(:offered_courses) }
       it { should have_many(:courses).through(:offered_courses) }
       it { should have_many(:registrations).through(:offered_courses) }
-      it { should have_many(:fees) }
+      it { should have_one(:fee) }
 
       it { should validate_presence_of(:begins_on) }
       it { should validate_presence_of(:ends_on) }

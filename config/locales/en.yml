@@ -15,6 +15,7 @@ en:
             edit: Edit this course
             delete: Remove this course forever
           form:
+            amount: "Default registration fee for this course"
             offered_sessions: "This course will be offered in the following sessions:"
         sessions:
           records:

@@ -28,14 +28,14 @@
 
   </div>
 
-  <% if @all_courses %>
+  <% unless @all_courses.empty? %>
     <div id='offered_courses' class='tickable_collection'>
       <h4><%= t('refinery.enrollment.admin.sessions.form.offered_courses') %></h4>
       <ul>
         <% @all_courses.each do |course| %>
           <li class='field'>
             <%= check_box_tag :course_ids, course.id, @session.courses.include?(course), :name => 'session[course_ids][]' %>
-            <%= label_tag :course_ids, course.name %>
+            <%= label_tag :course_ids, "#{course.name} - #{course.fee_for_session(@session).amount.format}" %>
           </li>
         <% end %>
       </ul>
