@@ -97,7 +97,7 @@ class CreateRefineryEnrollmentStructure < ActiveRecord::Migration
     add_index Refinery::Enrollment::Student::Account::LineItem.table_name, :account_id,
       :name => 'index_refinery_enrollment_student_account_line_items_account_id'
     add_index Refinery::Enrollment::Student::Account::LineItem.table_name, :registration_id,
-      :name => 'index_refinery_enrollment_student_account_line_items_registratio'
+      :name => 'index_refinery_enrollment_student_account_line_items_registrati'
 
 
 
