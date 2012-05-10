@@ -7,15 +7,18 @@ notifications:
 env:
   - DB=postgresql
   - DB=mysql
-matrix:
-  allow_failures:
-    - rvm: rbx            # ignore until rubinius #1670 fix is merged
-    - rvm: jruby-19mode   # ignore until refinerycms #1670 is fixed
+language: ruby
 rvm:
   - 1.8.7
   - 1.9.2
   - 1.9.3
-  - jruby-18mode
-  - jruby-19mode
-  - rbx                   # no need to test both failing versions (rbx-18mode, rbx-19mode)
   - ree
+  - jruby-18mode
+  # - jruby-19mode
+  # - rbx-18mode
+  # - rbx-19mode
+# matrix:
+#   allow_failures:
+#     - rvm: rbx-18mode     # ignore until rubinius #1670 fix is merged
+#     - rvm: rbx-19mode     # ignore until rubinius #1670 fix is merged
+#     - rvm: jruby-19mode   # ignore until refinerycms #1670 is fixed
