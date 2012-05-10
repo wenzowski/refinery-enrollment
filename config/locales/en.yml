@@ -35,6 +35,32 @@ en:
             hint: 'When a new comment is added, Refinery will send an email notification to you.'
             example: "Enter your email address(es) like: jack@work.com, jill@office.com"
             updated: 'Notification recipients have been set to "%{recipients}"'
+        students:
+          actions:
+            create_new: Add New Student
+            reorder: Reorder Students
+            reorder_done: Done Reordering Students
+          records:
+            title: Students
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Students yet. Click "Add New Student" to add your first student.
+          student:
+            view_live_html: View this student live <br/><em>(opens in a new window)</em>
+            edit: Edit this student
+            delete: Remove this student forever
+        guardians:
+          actions:
+            create_new: Add New Guardian
+            reorder: Reorder Guardians
+            reorder_done: Done Reordering Guardians
+          records:
+            title: Guardians
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Guardians yet. Click "Add New Guardian" to add your first guardian.
+          guardian:
+            view_live_html: View this guardian live <br/><em>(opens in a new window)</em>
+            edit: Edit this guardian
+            delete: Remove this guardian forever
         submenu:
           courses:
             title: Courses
@@ -44,6 +70,14 @@ en:
             title: Sessions
             manage: Manage sessions
             new: Create new session
+          students:
+            title: Students
+            manage: Manage students
+            new: Create new student
+          guardians:
+            title: Guardians
+            manage: Manage guardians
+            new: Create new guardian
           settings:
             title: Settings
             update_notified: Update who gets notified
@@ -52,7 +86,19 @@ en:
           other: Other Courses
       sessions:
         title: Session from %{begins_on} to %{ends_on}
+      students:
+        show:
+          other: Other Students
+      guardians:
+        show:
+          other: Other Guardians
   activerecord:
     attributes:
       'refinery/enrollment/course':
+        name: Name
+      'refinery/enrollment/student':
+        user_id: User
+        name: Name
+      'refinery/enrollment/guardian':
+        user_id: User
         name: Name

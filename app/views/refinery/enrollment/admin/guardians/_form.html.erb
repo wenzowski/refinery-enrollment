@@ -1,0 +1,23 @@
+<%= form_for [refinery, :enrollment_admin, @guardian] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @guardian,
+              :include_object_name => true %>
+
+  
+  <div class='field'>
+    <%= f.label :user_id -%>
+    <%= f.number_field :user_id  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :name -%>
+    <%= f.text_field :name  -%>
+
+  </div>
+  
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.guardians.admin.guardians.guardian'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @guardian.name) %>
+<% end -%>

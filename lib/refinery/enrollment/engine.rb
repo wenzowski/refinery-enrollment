@@ -10,7 +10,7 @@ module Refinery
           plugin.pathname = root
           plugin.name = "refinerycms_enrollment"
           plugin.url = proc { Refinery::Core::Engine.routes.url_helpers.enrollment_admin_courses_path }
-          plugin.menu_match = /refinery\/enrollment\/?(courses|sessions)?/
+          plugin.menu_match = /refinery\/enrollment\/?(courses|sessions|students|guardians)?/
           plugin.activity = { :class_name => :'refinery/enrollment/course' }
         end
       end

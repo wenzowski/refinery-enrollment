@@ -1,0 +1,33 @@
+<% content_for :body_content_title do %>
+  <%= @guardian.name %>
+<% end %>
+
+<% content_for :body_content_left do %>
+  <section>
+    <h1>User</h1>
+    <p>
+      <%=raw @guardian.user_id %>
+    </p>
+  </section>
+  <section>
+    <h1>Name</h1>
+    <p>
+      <%=raw @guardian.name %>
+    </p>
+  </section>
+<% end %>
+
+<% content_for :body_content_right do %>
+  <aside>
+    <h2><%= t('.other') %></h2>
+    <ul id="guardians">
+      <% @guardians.each do |guardian| %>
+        <li>
+          <%= link_to guardian.name, refinery.enrollment_guardian_path(guardian) %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+<% end %>
+
+<%= render '/refinery/content_page' %>

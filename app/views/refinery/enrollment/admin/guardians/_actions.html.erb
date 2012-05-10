@@ -1,0 +1,25 @@
+<ul>
+  <% if ::Refinery::Enrollment::Admin::GuardiansController.searchable? %>
+    <li>
+      <%= render '/refinery/admin/search', :url => refinery.enrollment_admin_guardians_path %>
+    </li>
+  <% end %>
+  <li>
+    <%= link_to t('.create_new'), refinery.new_enrollment_admin_guardian_path,
+                 :class => "add_icon" %>
+  </li>
+<% if !searching? && ::Refinery::Enrollment::Admin::GuardiansController.sortable? && ::Refinery::Enrollment::Guardian.any? %>
+  <li>
+    <%= link_to t('.reorder', :what => "Guardians"),
+                 refinery.enrollment_admin_guardians_path,
+                 :id => "reorder_action",
+                 :class => "reorder_icon" %>
+
+    <%= link_to t('.reorder_done', :what => "Guardians"),
+                 refinery.enrollment_admin_guardians_path,
+                 :id => "reorder_action_done",
+                 :style => "display: none;",
+                 :class => "reorder_icon" %>
+  </li>
+<% end %>
+</ul>

@@ -40,6 +40,36 @@
 
   <ul class='collapsible_menu'>
     <li class='not_a_link'>
+      <%= link_to t('.students.title'), '#',
+                   :class => 'sessions_icon' %>
+    </li>
+    <li>
+      <%= link_to t('.students.manage'), refinery.enrollment_admin_students_path,
+                   :class => 'edit_icon' %>
+    </li>
+    <li>
+       <%= link_to t('.students.new'), refinery.new_enrollment_admin_student_path,
+                   :class => 'add_icon' %>
+    </li>
+  </ul>
+
+  <ul class='collapsible_menu'>
+    <li class='not_a_link'>
+      <%= link_to t('.guardians.title'), '#',
+                   :class => 'sessions_icon' %>
+    </li>
+    <li>
+      <%= link_to t('.guardians.manage'), refinery.enrollment_admin_guardians_path,
+                   :class => 'edit_icon' %>
+    </li>
+    <li>
+       <%= link_to t('.guardians.new'), refinery.new_enrollment_admin_guardian_path,
+                   :class => 'add_icon' %>
+    </li>
+  </ul>
+
+  <ul class='collapsible_menu'>
+    <li class='not_a_link'>
       <%= link_to t('.settings.title'), '#',
                   :class => 'settings_icon' %>
     </li>

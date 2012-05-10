@@ -1,0 +1,11 @@
+<% content_for :body_content_left do %>
+  <ul id="students">
+    <% @students.each do |student| %>
+      <li>
+        <%= link_to student.name, refinery.enrollment_student_path(student) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render '/refinery/content_page' %>

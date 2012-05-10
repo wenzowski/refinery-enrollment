@@ -40,22 +40,27 @@ class CreateRefineryEnrollmentStructure < ActiveRecord::Migration
 
 
     create_table Refinery::Enrollment::Guardian.table_name do |t|
+      t.integer :user_id
       t.string  :name, :null => false
       t.timestamps
     end
     add_index Refinery::Enrollment::Guardian.table_name, :id
+    add_index Refinery::Enrollment::Guardian.table_name, :user_id
 
 
 
     create_table Refinery::Enrollment::Student.table_name do |t|
+      t.integer :user_id
       t.string  :name, :null => false
       t.timestamps
     end
     add_index Refinery::Enrollment::Student.table_name, :id
+    add_index Refinery::Enrollment::Student.table_name, :user_id
 
     create_table Refinery::Enrollment::Student::GuardianRelationship.table_name do |t|
       t.integer :student_id, :null => false
       t.integer :guardian_id, :null => false
+      t.string  :name, :null => false
       t.timestamps
     end
     add_index Refinery::Enrollment::Student::GuardianRelationship.table_name, :id
@@ -141,18 +146,6 @@ class CreateRefineryEnrollmentStructure < ActiveRecord::Migration
     add_index Refinery::Enrollment::Address.table_name, [:addressable_id, :addressable_type],
       :unique => true, :name => 'index_refinery_enrollment_address_on_addressable_id_and_type'
 
-
-
-    create_table Refinery::Enrollment::User.table_name do |t|
-      t.integer :user_id, :null => false
-      t.integer :authenticatable_id
-      t.string  :authenticatable_type
-      t.timestamps
-    end
-    add_index Refinery::Enrollment::User.table_name, :id
-    add_index Refinery::Enrollment::User.table_name, :user_id
-    add_index Refinery::Enrollment::User.table_name, [:authenticatable_id, :authenticatable_type],
-      :unique => true, :name => 'index_refinery_enrollment_users_on_authenticatable_id_and_type'
 
   end
 end

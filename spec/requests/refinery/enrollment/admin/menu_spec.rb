@@ -44,6 +44,24 @@ describe "Enrollment menu entry" do
       page.should have_content("Update who gets notified")
     end
 
+    it "should have a students section" do
+      visit refinery.enrollment_admin_root_path
+
+      page.should have_selector("nav#actions")
+      page.should have_content("Students")
+      page.should have_content("Manage students")
+      page.should have_content("Create new student")
+    end
+
+    it "should have a guardians section" do
+      visit refinery.enrollment_admin_root_path
+
+      page.should have_selector("nav#actions")
+      page.should have_content("Guardians")
+      page.should have_content("Manage guardians")
+      page.should have_content("Create new guardian")
+    end
+
   end
 
 end

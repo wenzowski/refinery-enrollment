@@ -1,0 +1,11 @@
+<% content_for :body_content_left do %>
+  <ul id="guardians">
+    <% @guardians.each do |guardian| %>
+      <li>
+        <%= link_to guardian.name, refinery.enrollment_guardian_path(guardian) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render '/refinery/content_page' %>
