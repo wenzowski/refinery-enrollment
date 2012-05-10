@@ -30,6 +30,8 @@ Refinery::Core::Engine.routes.append do
           end
         end
 
+        resources :fees
+
       end
     end
   end
