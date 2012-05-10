@@ -24,7 +24,7 @@ describe Refinery do
           before(:each) do
             visit refinery.enrollment_admin_guardians_path
 
-            click_link "Add New Guardian"
+            click_link "Add new guardian"
           end
 
           context "valid data" do

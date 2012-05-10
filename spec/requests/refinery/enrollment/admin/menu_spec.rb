@@ -50,7 +50,7 @@ describe "Enrollment menu entry" do
       page.should have_selector("nav#actions")
       page.should have_content("Students")
       page.should have_content("Manage students")
-      page.should have_content("Create new student")
+      page.should have_content("Add new student")
     end
 
     it "should have a guardians section" do
@@ -59,7 +59,7 @@ describe "Enrollment menu entry" do
       page.should have_selector("nav#actions")
       page.should have_content("Guardians")
       page.should have_content("Manage guardians")
-      page.should have_content("Create new guardian")
+      page.should have_content("Add new guardian")
     end
 
   end

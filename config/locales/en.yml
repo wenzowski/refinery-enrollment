@@ -73,11 +73,11 @@ en:
           students:
             title: Students
             manage: Manage students
-            new: Create new student
+            new: Add new student
           guardians:
             title: Guardians
             manage: Manage guardians
-            new: Create new guardian
+            new: Add new guardian
           settings:
             title: Settings
             update_notified: Update who gets notified

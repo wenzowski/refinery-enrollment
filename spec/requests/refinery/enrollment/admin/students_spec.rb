@@ -24,7 +24,7 @@ describe Refinery do
           before(:each) do
             visit refinery.enrollment_admin_students_path
 
-            click_link "Add New Student"
+            click_link "Add new student"
           end
 
           context "valid data" do
